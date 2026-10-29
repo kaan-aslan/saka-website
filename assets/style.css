@@ -56,13 +56,13 @@ section.dunkel .eyebrow{color:var(--bronze-hell)}
 .hero .wrap{display:grid;grid-template-columns:1.1fr .9fr;gap:56px;align-items:center}
 .hero .text{display:flex;flex-direction:column;gap:20px}
 .hero .aktionen{display:flex;flex-wrap:wrap;gap:14px;align-items:center;margin-top:8px}
-.hero .bild{background:linear-gradient(150deg,var(--bronze) 0%,var(--creme) 85%);border-radius:10px;aspect-ratio:4/3.2;display:grid;place-items:center;padding:32px}
-.hero .bild img{height:min(320px,60%);width:auto;filter:drop-shadow(0 8px 24px #4a341833)}
+.hero .bild{border-radius:10px;overflow:hidden;aspect-ratio:4/3.2;background:#17120C;box-shadow:0 18px 40px #4a341833}
+.hero .bild img{display:block;width:100%;height:100%;object-fit:cover}
 .fakten{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px;margin-top:48px;padding-top:20px;border-top:1px solid var(--linie)}
 .fakten div{display:flex;flex-direction:column;gap:2px}
 .fakten dt{font-size:.7rem;letter-spacing:.16em;text-transform:uppercase;color:var(--bronze)}
 .fakten dd{margin:0;color:var(--leise);font-size:.95rem}
-@media (max-width:860px){.hero .wrap{grid-template-columns:minmax(0,1fr);gap:32px}.hero .bild{aspect-ratio:auto;padding:40px}.hero .bild img{height:180px}}
+@media (max-width:860px){.hero .wrap{grid-template-columns:minmax(0,1fr);gap:32px}.hero .bild{aspect-ratio:4/3.2}}
 @media (max-width:560px){.fakten{grid-template-columns:minmax(0,1fr)}}
 
 /* Über uns */
@@ -138,3 +138,15 @@ section.creme .karte{border-color:#8A6A2F26}
 .zurueck{display:inline-block;margin-bottom:8px;text-decoration:none}
 .hero .wrap + .wrap{display:block}
 .karte.akzent{grid-column:1/-1}
+
+/* Angebote */
+.angebote{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:24px}
+.angebote .text{display:flex;flex-direction:column;gap:12px;max-width:62ch}
+/* Ansprechpartner */
+.ansprechpartner{display:flex;gap:28px;align-items:center;padding:26px;border:1px solid var(--linie);border-radius:10px;background:var(--creme);margin-bottom:16px}
+.ansprechpartner img{width:140px;height:140px;border-radius:50%;object-fit:cover;flex:none;border:3px solid var(--weiss);box-shadow:0 6px 18px #4a341826}
+.ansprechpartner h3{font-size:1.5rem;margin-top:4px}
+.ansprechpartner .rolle{margin:2px 0 10px;color:var(--leise)}
+.nachweise{list-style:none;margin:0;padding:0;display:grid;gap:4px;font-size:.93rem;color:var(--leise)}
+.nachweise li::before{content:"✓";color:var(--bronze);font-weight:700;margin-right:8px}
+@media (max-width:640px){.ansprechpartner{flex-direction:column;align-items:flex-start}.ansprechpartner img{width:112px;height:112px}}
