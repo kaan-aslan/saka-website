@@ -5,8 +5,21 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>SAKA Real Estate GmbH – Wohnimmobilien als Kapitalanlage in Augsburg</title>
 <meta name="description" content="SAKA Real Estate GmbH aus Augsburg vermittelt Wohnimmobilien als Kapitalanlage und begleitet Käufer persönlich von der ersten Beratung bis zum Notartermin.">
-<link rel="icon" href="assets/logo.png">
+<link rel="icon" href="assets/logo-144.png" type="image/png">
+<link rel="apple-touch-icon" href="assets/app-icon.png">
+<meta name="theme-color" content="#FFFFFF">
 <link rel="stylesheet" href="assets/style.css">
+<link rel="canonical" href="https://sakarealestate.de/">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="de_DE">
+<meta property="og:site_name" content="SAKA Real Estate GmbH">
+<meta property="og:title" content="SAKA Real Estate GmbH – Wohnimmobilien als Kapitalanlage in Augsburg">
+<meta property="og:description" content="Persönliche Begleitung beim Immobilienkauf, von der ersten Beratung bis zum Notartermin.">
+<meta property="og:url" content="https://sakarealestate.de/">
+<meta property="og:image" content="https://sakarealestate.de/assets/hero-haus.jpg">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"RealEstateAgent","name":"SAKA Real Estate GmbH","url":"https://sakarealestate.de/","telephone":"+49 171 4244252","email":"info@sakarealestate.de","logo":"https://sakarealestate.de/assets/app-icon.png","image":"https://sakarealestate.de/assets/hero-haus.jpg","address":{"@type":"PostalAddress","streetAddress":"Frölichstraße 18","postalCode":"86150","addressLocality":"Augsburg","addressCountry":"DE"},"founder":{"@type":"Person","name":"Kaan Aslan"}}
+</script>
 </head>
 <body>
 <a class="skip" href="#inhalt">Zum Inhalt springen</a>
@@ -14,17 +27,20 @@
 <header class="kopf">
   <div class="wrap">
     <a class="marke" href="#start" aria-label="SAKA Real Estate GmbH, zum Seitenanfang">
-      <img src="assets/logo.png" alt="" width="27" height="46">
+      <img src="assets/logo-144.png" alt="" width="27" height="46">
       <span><b>SAKA</b><small>REAL ESTATE GMBH</small></span>
     </a>
-    <nav class="nav" aria-label="Hauptnavigation">
+    <button class="menue-knopf" type="button" aria-expanded="false" aria-controls="hauptnavigation" hidden>
+      <span class="menue-icon" aria-hidden="true"></span><span class="menue-text">Menü</span>
+    </button>
+    <nav class="nav" id="hauptnavigation" aria-label="Hauptnavigation">
       <a href="#ueber-uns">Über uns</a>
       <a href="#leistungen">Leistungen</a>
       <a href="#ablauf">Ablauf</a>
       <a href="#angebote">Angebote</a>
       <a href="#kontakt">Kontakt</a>
     </nav>
-    <a class="btn" href="#kontakt">Erstgespräch vereinbaren</a>
+    <a class="btn kopf-cta" href="#kontakt">Erstgespräch vereinbaren</a>
   </div>
 </header>
 
@@ -33,15 +49,15 @@
 <section class="hero" id="start">
   <div class="wrap">
     <div class="text">
-      <span class="eyebrow">SAKA Real Estate GmbH · Augsburg</span>
+      <span class="eyebrow">Immobilienvertrieb aus Augsburg</span>
       <h1>Wohnimmobilien als Kapitalanlage – persönlich begleitet, von der ersten Beratung bis zum Notartermin.</h1>
       <p class="lead">SAKA Real Estate vermittelt und begleitet Immobilien in ganz Deutschland – für Kapitalanleger, Käufer und Vertriebspartner.</p>
       <div class="aktionen">
-        <a class="btn" href="#kontakt">Kostenloses Erstgespräch vereinbaren</a>
+        <a class="btn" href="#kontakt">Erstgespräch vereinbaren</a>
         <a class="btn hell" href="https://www.immobilienscout24.de/anbieter/profil/firmengruppe-aslan" target="_blank" rel="noopener">Aktuelle Angebote ansehen</a>
       </div>
     </div>
-    <div class="bild"><img src="assets/hero-haus.jpg" alt="Hausmodell im Gegenlicht vor einer Stadtkulisse" width="1070" height="856"></div>
+    <div class="bild"><picture><source type="image/webp" srcset="assets/hero-haus-640.webp 640w, assets/hero-haus-1070.webp 1070w" sizes="(max-width: 860px) 100vw, 45vw"><img src="assets/hero-haus.jpg" alt="Hausmodell im Gegenlicht vor einer Stadtkulisse" width="1070" height="856" fetchpriority="high"></picture></div>
   </div>
   <div class="wrap">
     <dl class="fakten">
@@ -55,7 +71,6 @@
 <section class="creme" id="ueber-uns">
   <div class="wrap zwei">
     <div class="text">
-      <span class="eyebrow">Das Unternehmen</span>
       <h2>Über SAKA Real Estate</h2>
       <p>SAKA Real Estate GmbH ist ein auf Wohnimmobilien spezialisiertes Vertriebsunternehmen mit Sitz in Augsburg. Wir arbeiten mit Bauträgern und Eigentümern zusammen und begleiten Käufer und Kapitalanleger von der ersten Beratung bis zum Notartermin.</p>
       <p>Geschäftsführer Kaan Aslan und sein Team legen Wert auf transparente Beratung, nachvollziehbare Berechnungen und einen persönlichen Ansprechpartner über den gesamten Prozess hinweg.</p>
@@ -76,7 +91,6 @@
 <section id="leistungen">
   <div class="wrap">
     <div class="kopfzeile">
-      <span class="eyebrow">Leistungsspektrum</span>
       <h2>Unsere Leistungen</h2>
       <p class="lead">Von der ersten Beratung bis zum Notartermin – alles aus einer Hand.</p>
     </div>
@@ -84,8 +98,8 @@
       <article class="karte"><h3>Kapitalanlage-Immobilien</h3><p>Sorgfältig ausgewählte Neubau- und Bestandsimmobilien zur Kapitalanlage – inklusive nachvollziehbarer Berechnung von Rendite, Steuervorteilen und Finanzierung.</p></article>
       <article class="karte"><h3>Klassische Maklerarbeit</h3><p>Kauf und Verkauf von Wohnimmobilien für Privatpersonen und Immobilienunternehmer – von der Bewertung über die Vermarktung bis zum Notartermin.</p></article>
       <article class="karte"><h3>Neubau von Bauträgern</h3><p>Wir vermitteln auch Neubauimmobilien, die wir direkt von Bauträgern beziehen.</p></article>
-      <article class="karte"><h3>Beratung mit Berechnung</h3><p>Individuelle Beratung mit transparenter Berechnung – Cashflow, Steuervorteile und Finanzierung nachvollziehbar dargestellt.</p><a class="mehr" href="#kontakt">Kontakt aufnehmen →</a></article>
-      <article class="karte akzent" id="vertriebspartner"><h3>Vertriebspartner werden</h3><p>Werden Sie Teil unseres Vertriebspartner-Netzwerks – als selbstständiger Handelsvertreter mit klarer Provisionsstruktur und Karriereplan.</p><a class="mehr" href="mailto:info@sakarealestate.de?subject=Vertriebspartner%20werden">Jetzt anfragen →</a></article>
+      <article class="karte"><h3>Beratung mit Berechnung</h3><p>Individuelle Beratung mit transparenter Berechnung – Cashflow, Steuervorteile und Finanzierung nachvollziehbar dargestellt.</p><a class="mehr" href="#kontakt">Kontakt aufnehmen</a></article>
+      <article class="karte akzent" id="vertriebspartner"><h3>Vertriebspartner werden</h3><p>Werden Sie Teil unseres Vertriebspartner-Netzwerks – als selbstständiger Handelsvertreter mit klarer Provisionsstruktur und Karriereplan.</p><a class="mehr" href="mailto:info@sakarealestate.de?subject=Vertriebspartner%20werden">Als Vertriebspartner anfragen</a></article>
     </div>
   </div>
 </section>
@@ -109,7 +123,6 @@
 <section id="fragen">
   <div class="wrap">
     <div class="kopfzeile">
-      <span class="eyebrow">Häufige Fragen</span>
       <h2>Häufige Fragen</h2>
       <p class="lead">Antworten auf Fragen, die uns Kapitalanleger häufig stellen.</p>
     </div>
@@ -159,7 +172,6 @@
 <section class="creme" id="angebote">
   <div class="wrap angebote">
     <div class="text">
-      <span class="eyebrow">Aktuelle Angebote</span>
       <h2>Unsere Immobilien auf ImmoScout24</h2>
       <p class="lead">Alle aktuell verfügbaren Objekte vermarkten wir über die Firmengruppe Aslan auf ImmoScout24. Dort finden Sie Exposés, Fotos und Preise – stets auf dem neuesten Stand.</p>
     </div>
@@ -170,7 +182,6 @@
 <section id="kontakt">
   <div class="wrap">
     <div class="kopfzeile">
-      <span class="eyebrow">Kontakt</span>
       <h2>Lassen Sie uns sprechen.</h2>
       <p class="lead">Rufen Sie an oder schreiben Sie uns – wir melden uns in der Regel innerhalb eines Werktags zurück.</p>
     </div>
@@ -201,7 +212,7 @@
   <div class="wrap">
     <div class="spalten">
       <div>
-        <a class="marke" href="#start"><img src="assets/logo.png" alt="" width="27" height="46"><span><b>SAKA</b><small>REAL ESTATE GMBH</small></span></a>
+        <a class="marke" href="#start"><img src="assets/logo-144.png" alt="" width="27" height="46"><span><b>SAKA</b><small>REAL ESTATE GMBH</small></span></a>
         <p class="claim">Wohnimmobilien als Kapitalanlage.</p>
       </div>
       <div>
@@ -216,5 +227,23 @@
     <p class="copy">© 2026 SAKA Real Estate GmbH. Alle Rechte vorbehalten.</p>
   </div>
 </footer>
+<script>
+/* Menü für schmale Bildschirme: ohne JavaScript bleibt die Navigation als Liste sichtbar */
+(function () {
+  var knopf = document.querySelector('.menue-knopf'), nav = document.getElementById('hauptnavigation');
+  if (!knopf || !nav) return;
+  document.documentElement.classList.add('js');
+  knopf.hidden = false;
+  function setze(offen) {
+    knopf.setAttribute('aria-expanded', String(offen));
+    knopf.querySelector('.menue-text').textContent = offen ? 'Schließen' : 'Menü';
+    document.documentElement.classList.toggle('menue-offen', offen);
+  }
+  knopf.addEventListener('click', function () { setze(knopf.getAttribute('aria-expanded') !== 'true'); });
+  nav.addEventListener('click', function (e) { if (e.target.closest('a')) setze(false); });
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && knopf.getAttribute('aria-expanded') === 'true') { setze(false); knopf.focus(); } });
+  window.matchMedia('(min-width: 901px)').addEventListener('change', function (m) { if (m.matches) setze(false); });
+})();
+</script>
 </body>
 </html>
