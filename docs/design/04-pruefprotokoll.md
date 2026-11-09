@@ -31,3 +31,10 @@ Werkzeug: Chromium über Playwright, Viewports 1440 × 900 und 390 × 844. App �
 - Kein Screenreader-Test mit VoiceOver auf echtem Gerät.
 - Lighthouse nicht ausgeführt. Ladeverhalten nur über Dateigrößen und Anfragen beurteilt.
 - Die Wirkung der Schriften im Konzept auf Windows-Geräten nicht gesondert geprüft.
+
+
+## Prüfung Redesign A–D (09.11.2026, Branch)
+- Website Desktop 1440 px und Mobil 390 px per Playwright: Menü öffnet/schließt (Esc, Linkwahl), aria-current folgt dem Scrollen, Maßkette zeichnet sich einmal, bei `prefers-reduced-motion` statisch.
+- Kontraste neu berechnet: Erde auf Papier 18,2 : 1, Messing-Text #7A5C24 auf Papier 6,3 : 1, Leise #5A544C auf Sandstein ≥ 5,9 : 1. Werte bitte bei Bedarf mit einem eigenen Prüfwerkzeug gegenprüfen.
+- Rechtsseiten (Impressum, Datenschutz, Datenschutz App) mit neuem Kopf geprüft, Inhalte unverändert.
+- App: `npx tsc --noEmit` ohne Fehler, `npm test` 7/7 bestanden, Web-Ausgabe aller fünf Reiter visuell geprüft. Berechnungslogik nicht verändert (nur Darstellung). Natives iPhone-Verhalten muss im Vorschau-Build geprüft werden.
