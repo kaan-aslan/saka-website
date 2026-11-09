@@ -1,0 +1,3 @@
+# GitHub Pages (Jekyll): Design-Unterlagen nicht veröffentlichen
+exclude:
+  - docs

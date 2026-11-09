@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Konzept „Maßstab“ – SAKA Real Estate (Entwurf)</title>
+<link rel="icon" href="../../../assets/logo-144.png" type="image/png">
+<style>
+/* Konzeptentwurf „Maßstab“ – nicht verlinkt, nicht veröffentlicht. Nur zur Freigabe.
+   Schriften selbst gehostet (OFL), keine externen Anfragen. */
+@font-face{font-family:"Bricolage";src:url(fonts/BricolageGrotesque_300Light.woff2) format("woff2");font-weight:300;font-display:swap}
+@font-face{font-family:"Bricolage";src:url(fonts/BricolageGrotesque_600SemiBold.woff2) format("woff2");font-weight:600;font-display:swap}
+@font-face{font-family:"Source Sans";src:url(fonts/SourceSans3_400Regular.woff2) format("woff2");font-weight:400;font-display:swap}
+@font-face{font-family:"Source Sans";src:url(fonts/SourceSans3_600SemiBold.woff2) format("woff2");font-weight:600;font-display:swap}
+:root{
+  --erde:#17120C;      /* Grund des App-Symbols */
+  --messing:#A9813E;   /* Linien, Maßketten, nie große Flächen */
+  --messing-text:#7A5C24;
+  --papier:#FFFFFF;
+  --sandstein:#ECE7DD;
+  --schiefer:#4B555E;  /* kühler Gegenton für Anmerkungen */
+  --text:#1E1B17;
+  --leise:#5E5850;
+  --linie:#D8D1C4;
+  --display:"Bricolage",system-ui,sans-serif;
+  --sans:"Source Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --raster:min(1240px, 100% - 40px);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--papier);color:var(--text);font:400 1.125rem/1.6 var(--sans);font-variant-numeric:tabular-nums}
+img{display:block;max-width:100%}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--messing-text);outline-offset:3px;border-radius:3px}
+.raster{width:var(--raster);margin-inline:auto}
+
+/* Kopf */
+.kopf{display:flex;align-items:center;gap:24px;padding-block:18px;border-bottom:1px solid var(--linie)}
+.marke{display:flex;align-items:center;gap:12px;text-decoration:none;margin-right:auto}
+.marke img{height:42px;width:auto}
+.marke b{font:600 1.25rem/1 var(--display);letter-spacing:.04em;color:var(--erde)}
+.kopf nav{display:flex;gap:4px}
+.kopf nav a{text-decoration:none;padding:10px 12px;color:var(--leise);font-size:1rem}
+.kopf nav a:hover{color:var(--erde)}
+.knopf{display:inline-flex;align-items:center;gap:10px;min-height:48px;padding:0 22px;background:var(--erde);color:#fff;text-decoration:none;font-weight:600;border-radius:999px;transition:background .2s}
+.knopf:hover{background:#3a2d1d}
+.knopf.leise{background:transparent;color:var(--erde);box-shadow:inset 0 0 0 1px var(--erde)}
+.knopf.leise:hover{background:var(--sandstein)}
+
+/* Hero: Typografie trägt, Person statt Stockfoto */
+.hero{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));column-gap:24px;padding-block:clamp(56px,9vw,120px) 0}
+.hero h1{grid-column:1/span 9;margin:0;font:300 clamp(2.6rem,6.4vw,5.6rem)/1.02 var(--display);letter-spacing:-.02em;color:var(--erde);text-wrap:balance}
+.hero h1 strong{font-weight:600}
+.hero .unter{grid-column:1/span 6;margin:32px 0 0;font-size:1.25rem;color:var(--leise);max-width:46ch}
+.hero .aktionen{grid-column:1/span 7;display:flex;flex-wrap:wrap;gap:12px;margin-top:36px}
+.person{grid-column:10/span 3;grid-row:1/span 3;align-self:end;display:flex;flex-direction:column;gap:14px}
+.person img{width:100%;aspect-ratio:4/5;object-fit:cover;object-position:50% 30%;border-radius:2px;filter:saturate(.9)}
+.person p{margin:0;font-size:.98rem;color:var(--leise);line-height:1.45}
+.person b{display:block;color:var(--erde);font:600 1.05rem/1.3 var(--display)}
+
+/* Maßkette: der Ablauf als Bemaßungslinie */
+.masskette{margin-top:clamp(56px,8vw,96px);padding-block:28px 40px;border-top:1px solid var(--linie)}
+.masskette h2{margin:0 0 22px;font:600 1rem/1.3 var(--sans);color:var(--schiefer)}
+.kette{position:relative;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));list-style:none;margin:0;padding:22px 0 0}
+.kette::before{content:"";position:absolute;left:0;right:0;top:0;height:1px;background:var(--messing);transform-origin:left;animation:ziehen 1.4s cubic-bezier(.2,.7,.2,1) .3s both}
+.kette li{position:relative;padding-right:24px}
+/* Maßstriche wie in Bauzeichnungen: 45° geneigt */
+.kette li::before,.kette li:last-child::after{content:"";position:absolute;top:-30px;left:0;width:1.5px;height:16px;background:var(--erde);transform:rotate(45deg)}
+.kette li:last-child::after{left:auto;right:0}
+.kette li::before{animation:auftauchen .4s ease both;animation-delay:calc(.3s + var(--i) * .25s)}
+.kette b{display:block;font:600 1.2rem/1.25 var(--display);color:var(--erde)}
+.kette span{display:block;margin-top:6px;color:var(--leise);font-size:1rem;max-width:30ch}
+@keyframes ziehen{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+@keyframes auftauchen{from{opacity:0}to{opacity:1}}
+
+/* Leistungen als redaktionelle Liste statt Kartenraster */
+.leistungen{padding-block:clamp(64px,9vw,120px);background:var(--sandstein)}
+.leistungen header{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));column-gap:24px;margin-bottom:40px}
+.leistungen h2{grid-column:1/span 6;margin:0;font:300 clamp(2rem,4vw,3.2rem)/1.08 var(--display);letter-spacing:-.015em;color:var(--erde)}
+.leistungen header p{grid-column:8/span 5;margin:0;align-self:end;color:var(--leise)}
+.liste{list-style:none;margin:0;padding:0;border-top:1px solid var(--erde)}
+.liste li{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));column-gap:24px;padding-block:26px;border-bottom:1px solid #17120C33}
+.liste h3{grid-column:1/span 5;margin:0;font:600 clamp(1.25rem,2vw,1.6rem)/1.2 var(--display);color:var(--erde)}
+.liste p{grid-column:7/span 6;margin:0;color:var(--leise)}
+
+.hinweis{padding-block:20px;font-size:.9rem;color:var(--schiefer);text-align:center}
+
+@media (max-width:900px){
+  .kopf nav{display:none}
+  .hero{grid-template-columns:minmax(0,1fr)}
+  .hero h1,.hero .unter,.hero .aktionen{grid-column:1}
+  .person{grid-column:1;grid-row:auto;flex-direction:row;align-items:center;margin-top:40px;padding-top:24px;border-top:1px solid var(--linie)}
+  .person img{flex:none;width:96px;height:96px;aspect-ratio:1;border-radius:50%}
+  .kette{grid-template-columns:minmax(0,1fr);padding:0 0 0 26px;gap:26px}
+  .kette::before{left:0;right:auto;top:6px;bottom:6px;width:1px;height:auto;transform-origin:top;animation-name:ziehen-v}
+  .kette li::before{top:6px;left:-30px;width:9px;height:1px}
+  .kette li:last-child::after{display:none}
+  .leistungen header,.liste li{grid-template-columns:minmax(0,1fr)}
+  .leistungen h2,.leistungen header p,.liste h3,.liste p{grid-column:1}
+  .leistungen header p,.liste p{margin-top:10px}
+  .aktionen .knopf{width:100%;justify-content:center}
+  .kopf .knopf{min-height:44px;padding:0 16px;font-size:.95rem}
+}
+@keyframes ziehen-v{from{transform:scaleY(0)}to{transform:scaleY(1)}}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<div class="raster">
+  <header class="kopf">
+    <a class="marke" href="#"><img src="../../../assets/logo-144.png" alt="" width="24" height="42"><b>SAKA</b></a>
+    <nav aria-label="Hauptnavigation"><a href="#">Leistungen</a><a href="#">Ablauf</a><a href="#">Angebote</a><a href="#">App</a><a href="#">Kontakt</a></nav>
+    <a class="knopf" href="#">Erstgespräch vereinbaren</a>
+  </header>
+
+  <main>
+    <section class="hero" aria-labelledby="titel">
+      <h1 id="titel">Wohnimmobilien als Kapitalanlage. <strong>Mit einem Ansprechpartner, der bleibt.</strong></h1>
+      <p class="unter">Wir rechnen offen, erklären verständlich und begleiten Sie persönlich, vom ersten Gespräch bis nach dem Notartermin. Aus Augsburg, für Objekte in ganz Deutschland.</p>
+      <div class="aktionen">
+        <a class="knopf" href="#">Erstgespräch vereinbaren</a>
+        <a class="knopf leise" href="#">Aktuelle Angebote ansehen</a>
+      </div>
+      <figure class="person" style="margin:0">
+        <img src="../../../assets/kaan-aslan.jpg" alt="Kaan Aslan" width="360" height="360">
+        <p><b>Kaan Aslan</b>Geschäftsführer und Ihr Ansprechpartner. Immobilienmakler mit Erlaubnis nach §&nbsp;34c&nbsp;GewO.</p>
+      </figure>
+    </section>
+
+    <section class="masskette" aria-labelledby="ablauf">
+      <h2 id="ablauf">So begleiten wir Sie</h2>
+      <ol class="kette">
+        <li style="--i:0"><b>Erstgespräch</b><span>Ziele, Budget und Wünsche klären, unverbindlich.</span></li>
+        <li style="--i:1"><b>Objekt und Berechnung</b><span>Passende Vorschläge mit nachvollziehbarer Rechnung.</span></li>
+        <li style="--i:2"><b>Kauf und Notar</b><span>Finanzierung, Notartermin und Übergabe begleiten.</span></li>
+        <li style="--i:3"><b>Danach</b><span>Ansprechpartner bei Vermietung, Verwaltung und Anschlussfinanzierung.</span></li>
+      </ol>
+    </section>
+  </main>
+</div>
+
+<section class="leistungen" aria-labelledby="leistungen">
+  <div class="raster">
+    <header>
+      <h2 id="leistungen">Was wir für Sie tun</h2>
+      <p>Vermittlung und Beratung aus einer Hand, mit offener Berechnung statt pauschaler Versprechen.</p>
+    </header>
+    <ul class="liste">
+      <li><h3>Kapitalanlage-Immobilien</h3><p>Ausgewählte Neubau- und Bestandsimmobilien, mit nachvollziehbarer Berechnung von Rendite, Steuereffekten und Finanzierung.</p></li>
+      <li><h3>Neubau von Bauträgern</h3><p>Objekte, die wir direkt von Bauträgern beziehen, teils bevor sie öffentlich angeboten werden.</p></li>
+      <li><h3>Kauf und Verkauf</h3><p>Klassische Maklerarbeit für Privatpersonen und Immobilienunternehmer, von der Bewertung bis zum Notartermin.</p></li>
+      <li><h3>Vertriebspartner werden</h3><p>Selbstständig als Handelsvertreter, mit klarer Provisionsstruktur und Karriereplan.</p></li>
+    </ul>
+  </div>
+</section>
+<p class="hinweis">Konzeptentwurf zur Freigabe. Nicht veröffentlicht.</p>
+</body>
+</html>
