@@ -82,11 +82,11 @@ p{margin:0}
 @media (max-width:600px){.kopf-cta{display:none}}
 
 /* Hero: Typografie trägt, Person statt Stockfoto */
-.hero{padding-top:clamp(56px,9vw,128px)}
+.hero{position:relative;padding-top:clamp(56px,8vw,112px);background:var(--erde);color:#ffffffd1;overflow:hidden}
 .hero-raster{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));column-gap:var(--spalt)}
-.hero h1{grid-column:1/span 9;font:300 clamp(2.6rem,6.2vw,5.5rem)/1.02 var(--display);letter-spacing:-.022em}
+.hero h1{grid-column:1/span 9;color:#fff;font:300 clamp(2.6rem,6.2vw,5.5rem)/1.02 var(--display);letter-spacing:-.022em}
 .hero h1 .stark{font-weight:600;display:block}
-.hero-text{grid-column:1/span 6;margin-top:32px;font-size:1.25rem;color:var(--leise);max-width:46ch}
+.hero-text{grid-column:1/span 6;margin-top:32px;font-size:1.25rem;color:#ffffffc7;max-width:46ch}
 .aktionen{grid-column:1/span 8;display:flex;flex-wrap:wrap;gap:12px;margin-top:36px}
 .person{grid-column:10/span 3;grid-row:1/span 3;align-self:end;margin:0;display:flex;flex-direction:column;gap:14px}
 .person img{width:100%;aspect-ratio:4/5;object-fit:cover;object-position:50% 28%;border-radius:2px}
@@ -94,7 +94,7 @@ p{margin:0}
 .person b{display:block;font:600 1.05rem/1.3 var(--display);color:var(--erde)}
 
 /* Maßkette: der Ablauf als Bemaßungslinie mit 45°-Strichen wie in Bauzeichnungen */
-.masskette{margin-top:clamp(64px,8vw,104px);padding-top:28px;padding-bottom:clamp(56px,7vw,96px);border-top:1px solid var(--linie)}
+.masskette{padding-top:clamp(48px,6vw,80px);padding-bottom:clamp(56px,7vw,96px)}
 .masskette h2{margin-bottom:26px;font:600 1rem/1.3 var(--sans);color:var(--schiefer)}
 .kette{position:relative;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));margin:0;padding:24px 0 0;list-style:none}
 .kette::before{content:"";position:absolute;inset:0 0 auto 0;height:1px;background:var(--messing);transform-origin:left;animation:ziehen 1.4s cubic-bezier(.2,.7,.2,1) .2s both}
@@ -220,3 +220,145 @@ p{margin:0}
 @media (min-width:901px){.ueber-text{grid-row:2}}
 .ueber-bild img{display:block;width:100%;height:auto;aspect-ratio:4/3;object-fit:cover;filter:saturate(.82)}
 @media (max-width:900px){.ueber-bild{grid-column:1;margin-inline:calc(var(--rand,20px) * -1)}}
+
+
+/* ---------- Dunkler Einstieg, Bewegung und Tiefe (Stand 11/2026) ---------- */
+.hero-raster{position:relative;z-index:1;padding-bottom:clamp(72px,9vw,128px)}
+.hero .person figcaption{color:#ffffffb8}
+.hero .person b{color:#fff}
+.hero .person img{box-shadow:0 0 0 1px #ffffff24}
+.btn.umriss{background:transparent;color:#fff;box-shadow:inset 0 0 0 1px #ffffff80}
+.btn.umriss:hover{background:#ffffff1a;color:#fff}
+.hero :focus-visible{outline-color:var(--messing-hell)}
+.zeile{display:block}
+/* Lineal am unteren Rand: Maßstab wie auf einem Plan */
+.lineal{position:absolute;left:0;right:0;bottom:0;height:28px;opacity:.7;
+  background:
+    linear-gradient(var(--messing),var(--messing)) 0 100%/100% 1px no-repeat,
+    repeating-linear-gradient(90deg,var(--messing) 0 1px,transparent 1px 80px) 0 100%/100% 18px no-repeat,
+    repeating-linear-gradient(90deg,var(--messing) 0 1px,transparent 1px 16px) 0 100%/100% 8px no-repeat}
+
+/* Kopf über dem dunklen Einstieg */
+.kopf{transition:background-color .3s ease,border-color .3s ease}
+.marke b,.marke small,.nav a{transition:color .3s ease}
+.oben .kopf{background:var(--erde);border-bottom-color:#ffffff1f;backdrop-filter:none}
+.oben .marke b{color:#fff}
+.oben .marke small{color:var(--messing-hell)}
+.oben .nav a{color:#ffffffc7}
+.oben .nav a:hover,.oben .nav a[aria-current]{color:#fff}
+.oben .nav a[aria-current]::after{background:var(--messing-hell)}
+.oben .kopf-cta{background:#fff;color:var(--erde)}
+.oben .kopf-cta:hover{background:var(--sandstein)}
+.oben .menue-knopf{background:transparent;color:#fff;box-shadow:inset 0 0 0 1px #ffffff66}
+.oben .kopf :focus-visible{outline-color:var(--messing-hell)}
+@media (max-width:960px){.js.oben .nav a{color:#fff;border-top-color:#ffffff26}}
+.fortschritt{position:absolute;left:0;right:0;bottom:-1px;height:2px;background:var(--messing);transform:scaleX(0);transform-origin:left}
+
+/* Buttons und Links reagieren */
+.btn{transition:background-color .2s ease,box-shadow .2s ease,transform .2s ease}
+@media (hover:hover){
+  .btn:hover{transform:translateY(-2px);box-shadow:0 10px 24px -12px #17120c80}
+  .btn.leise:hover{box-shadow:inset 0 0 0 1px var(--erde),0 10px 24px -14px #17120c66}
+  .btn.umriss:hover{box-shadow:inset 0 0 0 1px #fff}
+  .btn .extern{transition:transform .2s ease}
+  .btn:hover .extern{transform:translate(2px,-3px)}
+  .wege a{background:linear-gradient(var(--messing),var(--messing)) 0 100%/0 1px no-repeat;transition:background-size .3s ease}
+  .wege a:hover{background-size:100% 1px;text-decoration:none}
+  /* Leistungen: Zeile hebt sich, Messinglinie zieht sich auf */
+  .liste li{position:relative;transition:background-color .3s ease}
+  .liste li::before{content:"";position:absolute;left:0;right:0;top:-1px;height:2px;background:var(--messing);transform:scaleX(0);transform-origin:left;transition:transform .45s cubic-bezier(.2,.7,.2,1)}
+  .liste li:hover{background:#ffffff73}
+  .liste li:hover::before{transform:scaleX(1)}
+  .liste h3,.liste p{transition:transform .35s cubic-bezier(.2,.7,.2,1)}
+  .liste li:hover h3{transform:translateX(14px)}
+  .liste li:hover p{transform:translateX(-6px)}
+}
+.btn:active{transform:translateY(0) scale(.98)}
+
+/* App-Abschnitt mit echten Ansichten der App */
+.app{overflow:hidden}
+.app-raster{align-items:center}
+.app-text{grid-column:1/span 6}
+.app-symbol{grid-column:auto;margin-bottom:6px}
+.telefone{grid-column:8/span 5;position:relative;display:flex;justify-content:center;padding-block:12px}
+.telefon{width:min(270px,62vw);padding:9px;border-radius:42px;background:#0b0907;box-shadow:0 0 0 1px #ffffff33,0 40px 70px -30px #000}
+.telefon img{width:100%;height:auto;aspect-ratio:390/778;object-fit:cover;object-position:top;border-radius:33px}
+.telefon.vorn{position:relative;z-index:1;margin-left:-22%;margin-top:56px}
+.telefon.hinten{transform:translateY(var(--y,0)) scale(.94);transform-origin:top right;opacity:.92}
+
+/* Bild in „Über uns“ */
+.ueber-bild{overflow:hidden}
+.ueber-bild img{transform:translateY(var(--y,0)) scale(1.1);will-change:transform}
+
+/* Maßkette folgt dem Scrollen */
+.bewegt .kette::before{animation:none;transform:scaleX(var(--p,0))}
+.bewegt .kette li::before,.bewegt .kette li:last-child::after{animation:none;opacity:0;transition:opacity .3s ease}
+.bewegt .kette li h3,.bewegt .kette li p{opacity:.28;transform:translateY(8px);transition:opacity .5s ease,transform .5s cubic-bezier(.2,.7,.2,1)}
+.bewegt .kette li.an::before,.bewegt .kette.fertig li:last-child::after{opacity:1}
+.bewegt .kette li.an h3,.bewegt .kette li.an p{opacity:1;transform:none}
+.bewegt .kette li.an p{transition-delay:.08s}
+
+/* Einblenden beim Scrollen */
+.bewegt [data-zeig]{opacity:0;transform:translateY(22px);transition:opacity .8s ease var(--d,0s),transform .9s cubic-bezier(.2,.7,.2,1) var(--d,0s)}
+.bewegt [data-zeig].da{opacity:1;transform:none}
+.bewegt [data-zeig="bild"]{opacity:1;transform:none}
+.bewegt [data-zeig="bild"] img{clip-path:inset(0 0 100% 0);transition:clip-path 1.1s cubic-bezier(.7,0,.2,1)}
+.bewegt [data-zeig="bild"].da img{clip-path:inset(0)}
+.bewegt [data-zeig="reihe"]{opacity:1;transform:none}
+.bewegt [data-zeig="reihe"]>*{opacity:0;transform:translateY(16px);transition:opacity .6s ease,transform .7s cubic-bezier(.2,.7,.2,1),background-color .3s ease}
+.bewegt [data-zeig="reihe"].da>*{opacity:1;transform:none}
+.bewegt [data-zeig="reihe"].da>*:nth-child(2){transition-delay:.07s}
+.bewegt [data-zeig="reihe"].da>*:nth-child(3){transition-delay:.14s}
+.bewegt [data-zeig="reihe"].da>*:nth-child(4){transition-delay:.21s}
+.bewegt [data-zeig="reihe"].da>*:nth-child(5){transition-delay:.28s}
+.bewegt [data-zeig="telefone"]{opacity:1;transform:none}
+.bewegt [data-zeig="telefone"] .telefon{opacity:0;transition:opacity .8s ease,translate 1s cubic-bezier(.2,.7,.2,1);translate:0 48px}
+.bewegt [data-zeig="telefone"] .telefon.vorn{transition-delay:.15s}
+.bewegt [data-zeig="telefone"].da .telefon{opacity:1;translate:0 0}
+.bewegt [data-zeig="telefone"].da .telefon.hinten{opacity:.92}
+
+/* Einstieg: Zeilen und Bild erscheinen nacheinander */
+.bewegt .hero .zeile,.bewegt .hero-text,.bewegt .aktionen,.bewegt .hero .person{animation:hoch .9s cubic-bezier(.2,.7,.2,1) both}
+.bewegt .hero .zeile.stark{animation-delay:.12s}
+.bewegt .hero-text{animation-delay:.26s}
+.bewegt .aktionen{animation-delay:.36s}
+.bewegt .hero .person{animation-delay:.3s}
+.bewegt .lineal{animation:ziehen 1.6s cubic-bezier(.2,.7,.2,1) .3s both;transform-origin:left}
+@keyframes hoch{from{opacity:0;transform:translateY(26px)}to{opacity:1;transform:none}}
+
+@media (max-width:900px){
+  .hero .person{border-top-color:#ffffff26}
+  .app-text,.telefone{grid-column:1}
+  .telefone{margin-top:40px}
+  .telefon{width:min(230px,56vw)}
+  .ueber-bild img{transform:none}
+}
+
+/* Kontaktformular */
+.kontakt-kopf{grid-row:1}
+.wege{grid-column:1/span 5;grid-row:2}
+.formular{grid-column:7/span 6;grid-row:1/span 2;align-self:start;display:flex;flex-direction:column;gap:18px;padding:clamp(24px,3vw,40px);background:var(--sandstein);border-radius:4px}
+.formular h3{font:600 1.5rem/1.2 var(--display)}
+.feld{display:flex;flex-direction:column;gap:6px}
+.feld-reihe{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.feld label{font-weight:600;font-size:1rem;color:var(--erde)}
+.optional{font-weight:400;color:var(--leise)}
+.feld input[type=text],.feld input[type=email],.feld input[type=tel],.feld select,.feld textarea{width:100%;min-height:50px;padding:12px 14px;border:1px solid #8d8577;border-radius:6px;background:var(--papier);color:var(--text);font:400 1.0625rem/1.4 var(--sans);transition:border-color .2s ease,box-shadow .2s ease}
+.feld textarea{resize:vertical;min-height:120px}
+.feld input:focus-visible,.feld select:focus-visible,.feld textarea:focus-visible{outline:2px solid var(--messing-text);outline-offset:1px;border-color:var(--erde)}
+.feld [aria-invalid=true]{border-color:#A3261B;box-shadow:0 0 0 1px #A3261B}
+.haken{flex-direction:row;align-items:flex-start;gap:12px}
+.haken input{flex:none;width:24px;height:24px;margin:2px 0 0;accent-color:var(--erde)}
+.haken label{font-weight:400;font-size:.98rem;line-height:1.45;color:var(--leise)}
+.falle{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+.formular .btn{align-self:flex-start;border:0;cursor:pointer;font-family:var(--sans)}
+.formular .btn:disabled{opacity:.6;cursor:default}
+.form-status{min-height:1.5em;font-weight:600}
+.form-status.gut{color:#1F5C3A}
+.form-status.fehler{color:#A3261B}
+@media (max-width:900px){
+  .wege,.formular{grid-column:1;grid-row:auto}
+  .formular{margin-inline:-20px;border-radius:0;padding-inline:20px}
+  .feld-reihe{grid-template-columns:1fr}
+  .formular .btn{align-self:stretch}
+}
