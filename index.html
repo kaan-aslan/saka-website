@@ -156,12 +156,34 @@
   <div class="wrap kontakt-raster">
     <div class="kontakt-kopf" data-zeig>
       <h2 id="kontakt-titel">Lassen Sie uns sprechen.</h2>
-      <p>Rufen Sie an oder schreiben Sie uns. Wir melden uns in der Regel innerhalb eines Werktags.</p>
+      <p>Rufen Sie an oder schreiben Sie uns, per Formular oder direkt per E-Mail. Wir melden uns in der Regel innerhalb eines Werktags.</p>
       <div class="person klein">
         <img src="assets/kaan-aslan.jpg" alt="" width="360" height="360" loading="lazy">
         <p><b>Kaan Aslan</b>Geschäftsführer</p>
       </div>
     </div>
+    <form class="formular" id="anfrage" data-zeig style="--d:.1s" action="mailto:info@sakarealestate.de?subject=Anfrage%20%C3%BCber%20die%20Website" method="post" enctype="text/plain" novalidate>
+      <h3>Schreiben Sie uns</h3>
+      <div class="feld-reihe">
+        <p class="feld"><label for="f-vorname">Vorname</label><input id="f-vorname" name="firstname" type="text" autocomplete="given-name" required></p>
+        <p class="feld"><label for="f-nachname">Nachname</label><input id="f-nachname" name="lastname" type="text" autocomplete="family-name" required></p>
+      </div>
+      <p class="feld"><label for="f-email">E-Mail</label><input id="f-email" name="email" type="email" autocomplete="email" inputmode="email" required></p>
+      <p class="feld"><label for="f-tel">Telefon <span class="optional">(optional)</span></label><input id="f-tel" name="phone" type="tel" autocomplete="tel" inputmode="tel"></p>
+      <p class="feld"><label for="f-interesse">Worum geht es?</label>
+        <select id="f-interesse" name="interessen" required>
+          <option value="">Bitte wählen</option>
+          <option value="Kapitalanlage kaufen">Kapitalanlage kaufen</option>
+          <option value="Selbst nutzen">Immobilie zur Selbstnutzung kaufen</option>
+          <option value="Immobilie verkaufen">Immobilie verkaufen</option>
+          <option value="Vertriebspartner finden">Vertriebspartner werden</option>
+        </select></p>
+      <p class="feld"><label for="f-nachricht">Nachricht <span class="optional">(optional)</span></label><textarea id="f-nachricht" name="nachricht" rows="4"></textarea></p>
+      <p class="feld falle" aria-hidden="true"><label for="f-web">Bitte leer lassen</label><input id="f-web" name="website" type="text" tabindex="-1" autocomplete="off"></p>
+      <p class="feld haken"><input id="f-ok" name="einwilligung" type="checkbox" required><label for="f-ok">Ich bin einverstanden, dass SAKA Real Estate meine Angaben zur Bearbeitung meiner Anfrage verarbeitet. Details stehen in der <a href="datenschutz.html">Datenschutzerklärung</a>.</label></p>
+      <button class="btn" type="submit">Anfrage senden</button>
+      <p class="form-status" role="status" aria-live="polite"></p>
+    </form>
     <dl class="wege" data-zeig="reihe">
       <div><dt>Telefon</dt><dd><a href="tel:+491714244252">+49 171 4244252</a></dd></div>
       <div><dt>E-Mail</dt><dd><a href="mailto:info@sakarealestate.de?subject=Anfrage%20%C3%BCber%20die%20Website">info@sakarealestate.de</a></dd></div>
@@ -254,6 +276,42 @@
   window.addEventListener('scroll', anstossen, { passive: true });
   window.addEventListener('resize', anstossen);
   messen();
+
+  /* Kontaktformular: sendet die Angaben an unser CRM (HubSpot, Rechenzentrum in der EU), ohne Cookies und ohne fremde Skripte.
+     Ohne JavaScript oder bei einem Fehler bleibt der Weg per E-Mail. */
+  var form = document.getElementById('anfrage');
+  if (form && window.fetch) {
+    var ZIEL = 'https://api-eu1.hsforms.com/submissions/v3/integration/submit/149732727/f1b549ba-ae87-4881-a825-f65493731368';
+    var status = form.querySelector('.form-status'), knopfS = form.querySelector('button[type=submit]');
+    function melde(text, art) { status.textContent = text; status.className = 'form-status ' + (art || ''); }
+    function sende(felder) {
+      return fetch(ZIEL, { method: 'POST', headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ fields: felder, context: { pageUri: location.href.split('#')[0], pageName: document.title } }) });
+    }
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      var d = new FormData(form), fehlt = null;
+      form.querySelectorAll('[aria-invalid]').forEach(function (el) { el.removeAttribute('aria-invalid'); });
+      form.querySelectorAll('[required]').forEach(function (el) {
+        var ok = el.type === 'checkbox' ? el.checked : el.value.trim() !== '' && el.checkValidity();
+        if (!ok) { el.setAttribute('aria-invalid', 'true'); if (!fehlt) fehlt = el; }
+      });
+      if (fehlt) { melde(fehlt.type === 'checkbox' ? 'Bitte bestätigen Sie Ihr Einverständnis.' : fehlt.type === 'email' ? 'Bitte geben Sie eine gültige E-Mail-Adresse an.' : 'Bitte füllen Sie die markierten Felder aus.', 'fehler'); fehlt.focus(); return; }
+      if (d.get('website')) { melde('Vielen Dank. Wir melden uns bei Ihnen.', 'gut'); return; } /* Spamfalle */
+      var felder = ['firstname', 'lastname', 'email', 'phone', 'interessen', 'nachricht'].map(function (n) { return { objectTypeId: '0-1', name: n, value: String(d.get(n) || '').trim() }; })
+        .filter(function (f) { return f.value !== ''; });
+      knopfS.disabled = true; melde('Wird gesendet …');
+      sende(felder.concat([{ objectTypeId: '0-1', name: 'saka_quelle', value: 'website' }]))
+        .then(function (r) { return r.ok ? r : sende(felder); })
+        .then(function (r) {
+          if (!r.ok) throw new Error('Status ' + r.status);
+          form.reset(); form.classList.add('gesendet');
+          melde('Vielen Dank für Ihre Anfrage. Wir melden uns in der Regel innerhalb eines Werktags bei Ihnen.', 'gut');
+        })
+        .catch(function () { melde('Das Senden hat leider nicht geklappt. Bitte schreiben Sie uns direkt an info@sakarealestate.de oder rufen Sie an: +49 171 4244252.', 'fehler'); })
+        .then(function () { knopfS.disabled = false; });
+    });
+  }
 })();
 </script>
 </body>

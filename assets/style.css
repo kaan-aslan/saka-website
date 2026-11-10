@@ -333,3 +333,32 @@ p{margin:0}
   .telefon{width:min(230px,56vw)}
   .ueber-bild img{transform:none}
 }
+
+/* Kontaktformular */
+.kontakt-kopf{grid-row:1}
+.wege{grid-column:1/span 5;grid-row:2}
+.formular{grid-column:7/span 6;grid-row:1/span 2;align-self:start;display:flex;flex-direction:column;gap:18px;padding:clamp(24px,3vw,40px);background:var(--sandstein);border-radius:4px}
+.formular h3{font:600 1.5rem/1.2 var(--display)}
+.feld{display:flex;flex-direction:column;gap:6px}
+.feld-reihe{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.feld label{font-weight:600;font-size:1rem;color:var(--erde)}
+.optional{font-weight:400;color:var(--leise)}
+.feld input[type=text],.feld input[type=email],.feld input[type=tel],.feld select,.feld textarea{width:100%;min-height:50px;padding:12px 14px;border:1px solid #8d8577;border-radius:6px;background:var(--papier);color:var(--text);font:400 1.0625rem/1.4 var(--sans);transition:border-color .2s ease,box-shadow .2s ease}
+.feld textarea{resize:vertical;min-height:120px}
+.feld input:focus-visible,.feld select:focus-visible,.feld textarea:focus-visible{outline:2px solid var(--messing-text);outline-offset:1px;border-color:var(--erde)}
+.feld [aria-invalid=true]{border-color:#A3261B;box-shadow:0 0 0 1px #A3261B}
+.haken{flex-direction:row;align-items:flex-start;gap:12px}
+.haken input{flex:none;width:24px;height:24px;margin:2px 0 0;accent-color:var(--erde)}
+.haken label{font-weight:400;font-size:.98rem;line-height:1.45;color:var(--leise)}
+.falle{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+.formular .btn{align-self:flex-start;border:0;cursor:pointer;font-family:var(--sans)}
+.formular .btn:disabled{opacity:.6;cursor:default}
+.form-status{min-height:1.5em;font-weight:600}
+.form-status.gut{color:#1F5C3A}
+.form-status.fehler{color:#A3261B}
+@media (max-width:900px){
+  .wege,.formular{grid-column:1;grid-row:auto}
+  .formular{margin-inline:-20px;border-radius:0;padding-inline:20px}
+  .feld-reihe{grid-template-columns:1fr}
+  .formular .btn{align-self:stretch}
+}
