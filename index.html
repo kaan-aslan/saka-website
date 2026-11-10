@@ -8,9 +8,10 @@
 <link rel="icon" href="assets/brand/favicon.svg" type="image/svg+xml">
 <link rel="icon" href="assets/logo-144.png" type="image/png" sizes="144x144">
 <link rel="apple-touch-icon" href="assets/app-icon.png">
-<meta name="theme-color" content="#FFFFFF">
+<meta name="theme-color" content="#17120C">
 <link rel="preload" href="assets/fonts/BricolageGrotesque_300Light.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="assets/fonts/SourceSans3_400Regular.woff2" as="font" type="font/woff2" crossorigin>
+<script>(function(d){d.classList.add('js','oben');if('IntersectionObserver'in window&&!matchMedia('(prefers-reduced-motion: reduce)').matches)d.classList.add('bewegt')})(document.documentElement)</script>
 <link rel="stylesheet" href="assets/style.css">
 <link rel="canonical" href="https://sakarealestate.de/">
 <meta property="og:type" content="website">
@@ -46,26 +47,30 @@
     </nav>
     <a class="btn kopf-cta" href="#kontakt">Erstgespräch vereinbaren</a>
   </div>
+  <div class="fortschritt" aria-hidden="true"></div>
 </header>
 
 <main id="inhalt">
 
 <section class="hero" id="start" aria-labelledby="titel">
   <div class="wrap hero-raster">
-    <h1 id="titel">Wohnimmobilien als Kapitalanlage. <span class="stark">Mit einem Ansprechpartner, der bleibt.</span></h1>
+    <h1 id="titel"><span class="zeile">Wohnimmobilien als Kapitalanlage.</span> <span class="zeile stark">Mit einem Ansprechpartner, der bleibt.</span></h1>
     <p class="hero-text">Wir rechnen offen, erklären verständlich und begleiten Sie persönlich, vom ersten Gespräch bis nach dem Notartermin. Aus Augsburg, für Objekte in ganz Deutschland.</p>
     <div class="aktionen">
-      <a class="btn" href="#kontakt">Erstgespräch vereinbaren</a>
-      <a class="btn leise" href="https://www.immobilienscout24.de/anbieter/profil/firmengruppe-aslan" target="_blank" rel="noopener">Aktuelle Angebote<span class="extern" aria-hidden="true">↗</span><span class="sr">(öffnet ImmoScout24)</span></a>
+      <a class="btn hell" href="#kontakt">Erstgespräch vereinbaren</a>
+      <a class="btn umriss" href="https://www.immobilienscout24.de/anbieter/profil/firmengruppe-aslan" target="_blank" rel="noopener">Aktuelle Angebote<span class="extern" aria-hidden="true">↗</span><span class="sr">(öffnet ImmoScout24)</span></a>
     </div>
     <figure class="person">
       <img src="assets/kaan-aslan.jpg" alt="Kaan Aslan" width="360" height="360" fetchpriority="high">
       <figcaption><b>Kaan Aslan</b>Geschäftsführer und Ihr Ansprechpartner. Immobilienmakler mit Erlaubnis nach §&nbsp;34c&nbsp;GewO.</figcaption>
     </figure>
   </div>
+  <div class="lineal" aria-hidden="true"></div>
+</section>
 
-  <div class="wrap masskette" id="ablauf">
-    <h2>So begleiten wir Sie</h2>
+<section class="ablauf" id="ablauf" aria-labelledby="ablauf-titel">
+  <div class="wrap masskette">
+    <h2 id="ablauf-titel">So begleiten wir Sie</h2>
     <ol class="kette">
       <li style="--i:0"><h3>Erstgespräch</h3><p>Wir klären Ziele, Budget und Wünsche, unverbindlich und kostenfrei.</p></li>
       <li style="--i:1"><h3>Objekt und Berechnung</h3><p>Sie erhalten passende Vorschläge mit nachvollziehbarer Rechnung.</p></li>
@@ -77,12 +82,12 @@
 
 <section class="ueber" id="ueber-uns" aria-labelledby="ueber-titel">
   <div class="wrap ueber-raster">
-    <h2 id="ueber-titel">Ein Vertriebsunternehmen für Wohnimmobilien, mit Sitz in Augsburg.</h2>
-    <div class="ueber-text">
+    <h2 id="ueber-titel" data-zeig>Ein Vertriebsunternehmen für Wohnimmobilien, mit Sitz in Augsburg.</h2>
+    <div class="ueber-text" data-zeig style="--d:.15s">
       <p>Wir arbeiten mit Bauträgern und Eigentümern zusammen und begleiten Käufer und Kapitalanleger durch den gesamten Kauf.</p>
       <p>Geschäftsführer Kaan Aslan und sein Team legen Wert auf transparente Beratung, nachvollziehbare Berechnungen und einen persönlichen Ansprechpartner über den gesamten Prozess hinweg.</p>
     </div>
-    <figure class="ueber-bild">
+    <figure class="ueber-bild" data-zeig="bild">
       <img src="assets/objekt-mfh-653.webp" width="653" height="490" loading="lazy" decoding="async" alt="Saniertes Mehrfamilienhaus mit weißer Fassade, dunklen Gauben und Ziegeldach">
     </figure>
   </div>
@@ -90,11 +95,11 @@
 
 <section class="leistungen" id="leistungen" aria-labelledby="leistungen-titel">
   <div class="wrap">
-    <div class="abschnitt-kopf">
+    <div class="abschnitt-kopf" data-zeig>
       <h2 id="leistungen-titel">Was wir für Sie tun</h2>
       <p>Vermittlung und Beratung aus einer Hand, mit offener Berechnung statt pauschaler Versprechen.</p>
     </div>
-    <ul class="liste">
+    <ul class="liste" data-zeig="reihe">
       <li><h3>Kapitalanlage-Immobilien</h3><p>Sorgfältig ausgewählte Neubau- und Bestandsimmobilien zur Kapitalanlage, inklusive nachvollziehbarer Berechnung von Rendite, Steuervorteilen und Finanzierung.</p></li>
       <li><h3>Neubau von Bauträgern</h3><p>Neubauimmobilien, die wir direkt von Bauträgern beziehen, teils bevor sie öffentlich vermarktet werden.</p></li>
       <li><h3>Beratung mit Berechnung</h3><p>Individuelle Beratung, in der wir Cashflow, Steuervorteile und Finanzierung nachvollziehbar darstellen.</p></li>
@@ -106,11 +111,11 @@
 
 <section class="fragen" id="fragen" aria-labelledby="fragen-titel">
   <div class="wrap fragen-raster">
-    <div class="abschnitt-kopf seitlich">
+    <div class="abschnitt-kopf seitlich" data-zeig>
       <h2 id="fragen-titel">Was Sie bei uns erwarten können</h2>
       <p>Antworten auf Fragen, die uns Kapitalanleger häufig stellen.</p>
     </div>
-    <div class="faq">
+    <div class="faq" data-zeig style="--d:.1s">
       <details><summary>Habe ich einen festen Ansprechpartner?</summary><p>Ja. Von der ersten Beratung bis zum Notartermin begleitet Sie dieselbe Person, ohne Wechsel je nach Phase.</p></details>
       <details><summary>Wie hoch ist die Rendite?</summary><p>Das lässt sich nicht pauschal beantworten. Sie hängt von Objekt, Lage, Finanzierung und Marktentwicklung ab. Wir zeigen Ihnen eine individuelle, nachvollziehbare Berechnung statt fixer Versprechen.</p></details>
       <details><summary>Wie transparent ist die Berechnung?</summary><p>Kaufpreis, Finanzierung und mögliche Steuervorteile besprechen wir offen und nachvollziehbar, ohne pauschale Rendite-Versprechen.</p></details>
@@ -124,17 +129,21 @@
 
 <section class="app" id="app" aria-labelledby="app-titel">
   <div class="wrap app-raster">
-    <img class="app-symbol" src="assets/app-icon.png" alt="" width="96" height="96" loading="lazy">
-    <div class="app-text">
+    <div class="app-text" data-zeig>
+      <img class="app-symbol" src="assets/app-icon.png" alt="" width="96" height="96" loading="lazy">
       <h2 id="app-titel">ImmoPartner, die kostenlose App für Ihre Immobilie</h2>
       <p>Kaufnebenkosten und Cashflow berechnen, Fristen im Blick behalten, Unterlagen vorbereiten. Einfach erklärt und ohne Registrierung. Ihre Daten bleiben auf Ihrem iPhone.</p>
       <a class="btn hell" href="https://apps.apple.com/app/immopartner/id6827477322" target="_blank" rel="noopener">Im App Store ansehen<span class="extern" aria-hidden="true">↗</span></a>
+    </div>
+    <div class="telefone" data-zeig="telefone">
+      <div class="telefon hinten"><img src="assets/app-kaufen.webp" width="780" height="1556" loading="lazy" decoding="async" alt="App ImmoPartner, Bereich Kaufen: Schritt für Schritt durch Kaufpreis und Nebenkosten, hier mit einem Beispielobjekt"></div>
+      <div class="telefon vorn"><img src="assets/app-verwalten.webp" width="780" height="1556" loading="lazy" decoding="async" alt="App ImmoPartner, Bereich Verwalten: Kaltmiete, Cashflow, Restschuld und Fristen eines Beispielobjekts"></div>
     </div>
   </div>
 </section>
 
 <section class="angebote" id="angebote" aria-labelledby="angebote-titel">
-  <div class="wrap angebote-raster">
+  <div class="wrap angebote-raster" data-zeig>
     <div>
       <h2 id="angebote-titel">Aktuelle Angebote</h2>
       <p>Alle verfügbaren Objekte vermarkten wir über die Firmengruppe Aslan auf ImmoScout24, mit Exposés, Fotos und Preisen.</p>
@@ -145,7 +154,7 @@
 
 <section class="kontakt" id="kontakt" aria-labelledby="kontakt-titel">
   <div class="wrap kontakt-raster">
-    <div class="kontakt-kopf">
+    <div class="kontakt-kopf" data-zeig>
       <h2 id="kontakt-titel">Lassen Sie uns sprechen.</h2>
       <p>Rufen Sie an oder schreiben Sie uns. Wir melden uns in der Regel innerhalb eines Werktags.</p>
       <div class="person klein">
@@ -153,7 +162,7 @@
         <p><b>Kaan Aslan</b>Geschäftsführer</p>
       </div>
     </div>
-    <dl class="wege">
+    <dl class="wege" data-zeig="reihe">
       <div><dt>Telefon</dt><dd><a href="tel:+491714244252">+49 171 4244252</a></dd></div>
       <div><dt>E-Mail</dt><dd><a href="mailto:info@sakarealestate.de?subject=Anfrage%20%C3%BCber%20die%20Website">info@sakarealestate.de</a></dd></div>
       <div><dt>Anschrift</dt><dd>SAKA Real Estate GmbH<br>Frölichstraße 18, 86150 Augsburg</dd></div>
@@ -201,7 +210,7 @@
   document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && knopf.getAttribute('aria-expanded') === 'true') { setze(false); knopf.focus(); } });
   window.matchMedia('(min-width: 961px)').addEventListener('change', function (m) { if (m.matches) setze(false); });
 
-  if (!('IntersectionObserver' in window)) return;
+  if ('IntersectionObserver' in window) {
   var links = {};
   nav.querySelectorAll('a[href^="#"]').forEach(function (a) { links[a.getAttribute('href').slice(1)] = a; });
   var beobachter = new IntersectionObserver(function (eintraege) {
@@ -212,6 +221,39 @@
     });
   }, { rootMargin: '-45% 0px -50% 0px' });
   Object.keys(links).forEach(function (id) { var el = document.getElementById(id); if (el) beobachter.observe(el); });
+  }
+
+  /* Bewegung: Einblenden beim Scrollen, Maßkette, Kopf über dem dunklen Hero, Lesefortschritt.
+     Greift nur, wenn das Gerät keine reduzierte Bewegung wünscht (Klasse „bewegt“). */
+  var wurzel = document.documentElement, bewegt = wurzel.classList.contains('bewegt');
+  if (bewegt) {
+    var zeiger = new IntersectionObserver(function (e) {
+      e.forEach(function (x) { if (x.isIntersecting) { x.target.classList.add('da'); zeiger.unobserve(x.target); } });
+    }, { rootMargin: '0px 0px -12% 0px', threshold: 0.08 });
+    document.querySelectorAll('[data-zeig]').forEach(function (el) { zeiger.observe(el); });
+  }
+  var hero = document.querySelector('.hero'), kette = document.querySelector('.kette'), schritte = kette ? kette.children : [],
+      balken = document.querySelector('.fortschritt'), bild = document.querySelector('.ueber-bild img'), hinten = document.querySelector('.telefon.hinten'), wartet = false;
+  function messen() {
+    wartet = false;
+    var h = window.innerHeight, y = window.scrollY;
+    if (hero) wurzel.classList.toggle('oben', hero.getBoundingClientRect().bottom > 64);
+    if (balken) balken.style.transform = 'scaleX(' + Math.min(1, y / Math.max(1, document.documentElement.scrollHeight - h)) + ')';
+    if (!bewegt) return;
+    if (kette) {
+      var r = kette.getBoundingClientRect(), hoch = window.matchMedia('(max-width:900px)').matches,
+          p = Math.max(0, Math.min(1, (h * 0.82 - r.top) / (hoch ? r.height + h * 0.1 : h * 0.42)));
+      kette.style.setProperty('--p', p.toFixed(3));
+      for (var i = 0; i < schritte.length; i++) schritte[i].classList.toggle('an', p > (i + 0.12) / schritte.length);
+      kette.classList.toggle('fertig', p > 0.98);
+    }
+    if (bild && window.innerWidth > 900) { var b = bild.getBoundingClientRect(); bild.style.setProperty('--y', (((b.top + b.height / 2) - h / 2) * -0.05).toFixed(1) + 'px'); }
+    if (hinten && window.innerWidth > 900) { var t = hinten.getBoundingClientRect(); hinten.style.setProperty('--y', (((t.top + t.height / 2) - h / 2) * 0.06).toFixed(1) + 'px'); }
+  }
+  function anstossen() { if (!wartet) { wartet = true; requestAnimationFrame(messen); } }
+  window.addEventListener('scroll', anstossen, { passive: true });
+  window.addEventListener('resize', anstossen);
+  messen();
 })();
 </script>
 </body>
